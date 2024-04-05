@@ -1,0 +1,59 @@
+﻿<Window x:Class="AngryBirdsApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AngryBirdsApp"
+        xmlns:uc="clr-namespace:AngryBirdsApp.UserControls"
+        xmlns:smsc="clr-namespace:AngryBirdsApp.SmoothScroll"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Border CornerRadius="20" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Source="Img/logo_ab.png" Width="130" Margin="20 0 0 0"/>
+            <Border x:Name="backtoStart" Height="30" Width="30" VerticalAlignment="Top" Visibility="Hidden" HorizontalAlignment="Right" Margin="10 10 30 0" MouseLeftButtonDown="backtoStart_MouseLeftButtonDown">
+                <Border.Background>
+                    <ImageBrush ImageSource="Img/back_ico.png"/>
+                </Border.Background>
+            </Border>
+            <Border VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" CornerRadius="10" Background="#c6c6c6">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Img/search_ico.png" Width="20" Margin="10 0 0 0"/>
+                    <TextBlock Text="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Margin="45 0 0 0" Foreground="#2c2c2c"/>
+                </StackPanel>
+                
+            </Border>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border x:Name="backScrollbtn" Width="60" Height="30" CornerRadius="10" Background="Transparent" Margin="0 0 10 0" MouseLeftButtonDown="backScrollbtn_MouseLeftButtonDown">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image Source="Img/back_ico.png" Width="12" Margin="0 0 8 0"/>
+                        <TextBlock Text="Back" FontWeight="DemiBold"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="nextScrollbtn" Width="60" Height="30" CornerRadius="10" Background="Transparent" Margin="10 0 0 0" MouseLeftButtonDown="nextScrollbtn_MouseLeftButtonDown">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <TextBlock Text="Back" FontWeight="DemiBold"/>
+                        <Image Source="Img/next.png" Width="12" Margin="8 0 0 0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <smsc:SmoothScrollViewer Grid.Row="1" Grid.RowSpan="2" Margin="0 0 0 50" x:Name="scrollViewer" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden">
+                <Grid Grid.Row="1">
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <uc:BirdsUC x:Name="Red" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Red" Color1="#d92d21" Color2="#a51d14" Image="Birds/red.png" MouseLeftButtonDown="Red_MouseLeftButtonDown"/>
+                <uc:BirdsUC x:Name="Chuck" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Chuck" Color1="#eeb656" Color2="#dd9822" Image="Birds/Chuck.png" MouseLeftButtonDown="Chuck_MouseLeftButtonDown"/>
+                <uc:BirdsUC x:Name="Stella" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Stella" Color1="#e8adbe" Color2="#d57189" Image="Birds/Stella.png" MouseLeftButtonDown="Stella_MouseLeftButtonDown"/>
+                <uc:BirdsUC x:Name="Bomb" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Bomb" Color1="#5c6273" Color2="#252831" Image="Birds/Bomb.png"/>
+                <uc:BirdsUC x:Name="Terence" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Terence" Color1="#b33140" Color2="#630913" Image="Birds/Terence.png"/>
+                <uc:BirdsUC x:Name="Matilda" Margin="10 0 0 0" WidthGrid="233" HeightGrid="340" BirdName="Matilda" Color1="#d99aa1" Color2="#8b6867" Image="Birds/Matilda.png"/>
+            </StackPanel>
+                </Grid>
+            </smsc:SmoothScrollViewer>
+        </Grid>
+    </Border>
+</Window>
